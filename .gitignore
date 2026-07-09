@@ -1,0 +1,7 @@
+# Internal working docs — not for the public site
+site-copy.md
+image-prompts.md
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
