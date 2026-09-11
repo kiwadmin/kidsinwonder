@@ -74,8 +74,8 @@ Swap in the designer's SVG later for crisp scaling — keep the same filenames o
 8. **Registration (`registration.html`).** ✅ CTA wired to Naver 톡톡. Still to fill: `상담 가능 시간` (hours).
 9. ~~**Parent feed (`parent.html`).**~~ ✅ Configured (2026-07). `GATE_PASSWORD` + `DRIVE_FOLDER_ID`
    set; `localStorage` "remember me" + 로그아웃 link; `noindex`, unlinked, not in sitemap/robots.
-   `parent-feed.json` holds the feed: **rolling 6-month window, all classes** (445 items across
-   2026-03..07 so far), grouped 월 → 반. **Monthly regen:** re-crawl the class folders under the top
+   `parent-feed.json` holds the feed: **rolling 6-month window, all classes** (510 items across
+   2026-03..08 so far), grouped 월 → 반. **Monthly regen:** re-crawl the class folders under the top
    Drive folder, keep the 6 newest months, rewrite `parent-feed.json` (newest month first; `updatedAt`
    = newest month).
    ⚠ Drive files must be shared **"anyone with the link — Viewer"** or thumbnails won't load.
