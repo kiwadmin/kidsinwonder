@@ -664,7 +664,247 @@ h1, h2, h3 { color: var(--navy); font-weight: 700; line-height: 1.22; letter-spa
 }
 .feed .btn-signout:hover { border-color: var(--teal); color: var(--teal-deep); }
 
+/* 사진첩 전환 탭 — 반별 사진첩 ↔ 해외캠프 (학부모가 놓치지 않도록 크게) */
+.album-switch {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  margin: 4px 0 32px;
+}
+.album-switch a {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 1px; text-align: center; text-decoration: none;
+  padding: 11px 14px 12px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--line);
+  background: var(--surface); color: var(--navy);
+  font-size: clamp(15px, 3vw, 17px); font-weight: 700; letter-spacing: -.01em;
+  line-height: 1.35;
+  box-shadow: var(--shadow);
+  transition: border-color .25s var(--ease), color .25s var(--ease),
+              background .25s var(--ease), transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.album-switch a .sw-sub {
+  font-family: var(--font-latin); font-size: 10.5px; font-weight: 500;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+}
+.album-switch a:hover {
+  border-color: var(--teal); color: var(--teal-deep);
+  transform: translateY(-2px); box-shadow: var(--shadow-lift);
+}
+.album-switch a[aria-current="page"] {
+  background: var(--teal); border-color: var(--teal); color: #fff;
+  box-shadow: 0 6px 18px -8px rgba(29,158,117,.7);
+}
+.album-switch a[aria-current="page"] .sw-sub { color: rgba(255,255,255,.82); }
+.album-switch a[aria-current="page"]:hover { color: #fff; transform: none; }
+@media (prefers-reduced-motion: reduce) { .album-switch a:hover { transform: none; } }
+
+/* 해외캠프 — 캠프별 앨범 카드 */
+.trips { display: grid; grid-template-columns: repeat(auto-fill, minmax(268px, 1fr)); gap: 20px; }
+.trip-card {
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+  text-decoration: none; color: inherit;
+  transition: box-shadow .3s var(--ease), border-color .3s var(--ease), transform .3s var(--ease);
+}
+a.trip-card:hover { box-shadow: var(--shadow-lift); border-color: var(--teal); transform: translateY(-3px); }
+.trip-shot { position: relative; aspect-ratio: 3 / 2; background: var(--line-soft); overflow: hidden; }
+.trip-shot img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s var(--ease); }
+a.trip-card:hover .trip-shot img { transform: scale(1.05); }
+.trip-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 5px; flex: 1; }
+.trip-eyebrow {
+  font-family: var(--font-latin); font-size: 11px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--teal-deep); font-weight: 600;
+}
+.trip-title { font-family: var(--font-display); font-size: 21px; color: var(--navy); line-height: 1.3; }
+.trip-meta { font-size: 13px; color: var(--muted); margin-top: auto; padding-top: 8px; }
+.trip-go { font-size: 13.5px; font-weight: 600; color: var(--teal-deep); display: inline-flex; align-items: center; gap: 5px; }
+.trip-card.soon { opacity: .72; }
+.trip-card.soon .trip-shot { display: grid; place-items: center; background: var(--gold-wash); }
+.trip-tag {
+  position: absolute; top: 10px; left: 10px; z-index: 1;
+  background: rgba(26,26,46,.78); color: #fff; font-size: 11.5px; font-weight: 600;
+  padding: 4px 10px; border-radius: 999px; letter-spacing: .02em;
+}
+@media (prefers-reduced-motion: reduce) { .trip-shot img, a.trip-card:hover { transition: none; transform: none; } }
+
 /* Utility */
 .stack-sm > * + * { margin-top: 12px; }
 .mt-s { margin-top: 18px; } .mt-m { margin-top: 32px; } .mt-l { margin-top: 48px; }
 .text-teal { color: var(--teal-deep); }
+
+
+/* ============================================================
+   여행 사진첩 — 앨범 레이아웃 (parent-geneva / parent-london-*)
+   ============================================================ */
+/* ===== 해외캠프 — 앨범 레이아웃 ===== */
+.album-hero {
+  position: relative; border-radius: var(--radius); overflow: hidden;
+  margin-bottom: clamp(28px, 5vw, 44px); background: var(--teal-wash);
+  box-shadow: var(--shadow);
+}
+.album-hero img { width: 100%; height: clamp(230px, 42vw, 440px); object-fit: cover; display: block; }
+.album-hero .veil {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(26,26,46,0) 32%, rgba(26,26,46,.78) 100%);
+}
+.album-hero .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: clamp(18px, 4vw, 32px); color: #fff; }
+.album-hero .eyebrow { color: rgba(255,255,255,.82); margin-bottom: 6px; }
+.album-hero h1 {
+  font-family: var(--font-display); color: #fff;
+  font-size: clamp(26px, 6vw, 44px); line-height: 1.16; margin: 0;
+}
+.album-hero .sub {
+  font-family: var(--font-latin); font-size: clamp(13px, 2.4vw, 15px);
+  color: rgba(255,255,255,.86); letter-spacing: .04em; margin-top: 8px;
+}
+.album-meta {
+  display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: baseline;
+  font-size: 14px; color: var(--muted); margin-bottom: 30px;
+}
+.album-meta b { color: var(--navy); font-weight: 600; }
+
+/* 날짜 챕터 */
+.day + .day { margin-top: clamp(40px, 6vw, 64px); }
+.day-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; }
+.day-num {
+  font-family: var(--font-latin); font-size: clamp(30px, 6vw, 46px);
+  font-weight: 600; color: var(--teal); line-height: 1;
+}
+.day-title { font-size: 15px; font-weight: 600; color: var(--navy); }
+.day-count { font-size: 13px; color: var(--muted); margin-left: auto; white-space: nowrap; }
+.day-rule { height: 1px; background: var(--line); margin: 0 0 18px; }
+
+/* 앨범 그리드 — 사진이 인화지처럼 놓이도록 */
+.shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 14px; }
+.shot { margin: 0; position: relative; }
+.shot button {
+  display: block; width: 100%; padding: 0; border: 0; background: none;
+  cursor: zoom-in; border-radius: var(--radius-sm); overflow: hidden;
+  box-shadow: var(--shadow); line-height: 0;
+}
+.shot img {
+  width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block;
+  background: var(--line-soft); transition: transform .5s var(--ease);
+}
+.shot button:hover img, .shot button:focus-visible img { transform: scale(1.04); }
+.shot button:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+.shot figcaption {
+  font-family: var(--font-latin); font-size: 12px; color: var(--muted);
+  margin-top: 7px; line-height: 1.45; letter-spacing: .01em;
+}
+.shot figcaption::before {
+  content: ""; display: inline-block; width: 5px; height: 5px; border-radius: 50%;
+  background: var(--gold); margin: 0 6px 2px 0; vertical-align: middle;
+}
+/* 랜드마크 사진은 조금 크게 */
+.shot.mark { grid-column: span 2; }
+.shot.mark img { aspect-ratio: 4 / 3; }
+@media (max-width: 420px) { .shot.mark { grid-column: span 2; } }
+
+.clip { grid-column: 1 / -1; }
+.clip .frame {
+  aspect-ratio: 16 / 9; border-radius: var(--radius-sm); overflow: hidden;
+  background: var(--navy); box-shadow: var(--shadow);
+}
+.clip iframe { width: 100%; height: 100%; border: 0; display: block; }
+.clip figcaption { font-family: var(--font-latin); font-size: 12px; color: var(--muted); margin-top: 7px; }
+
+.album-empty {
+  text-align: center; color: var(--muted); font-size: 15px;
+  padding: 48px 20px; background: var(--surface);
+  border: 1px solid var(--line); border-radius: var(--radius);
+}
+.album-back { display: inline-flex; align-items: center; gap: 7px; font-size: 14px; margin-bottom: 18px; }
+
+/* 라이트박스 */
+.lbox {
+  position: fixed; inset: 0; z-index: 90; display: none;
+  background: rgba(16,16,26,.94); padding: clamp(12px, 3vw, 34px);
+}
+.lbox.on { display: grid; grid-template-rows: 1fr auto; }
+.lbox .stage { display: grid; place-items: center; min-height: 0; }
+.lbox img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 6px; }
+.lbox .bar {
+  display: flex; align-items: center; justify-content: center; gap: 18px;
+  padding-top: 14px; color: rgba(255,255,255,.9);
+}
+.lbox .lcap {
+  font-family: var(--font-latin); font-size: 13px; letter-spacing: .02em;
+  text-align: center; min-height: 20px;
+}
+.lbox .count { font-family: var(--font-latin); font-size: 12px; color: rgba(255,255,255,.55); }
+.lbox button {
+  background: rgba(255,255,255,.1); color: #fff; border: 0; cursor: pointer;
+  width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center;
+  transition: background .2s var(--ease);
+}
+.lbox button:hover { background: rgba(255,255,255,.22); }
+.lbox .x { position: absolute; top: clamp(10px, 2.5vw, 22px); right: clamp(10px, 2.5vw, 22px); }
+@media (prefers-reduced-motion: reduce) { .shot img { transition: none; } }
+
+/* 앨범 맨 위 여행 영상 */
+.album-film { margin: 0 0 clamp(30px, 5vw, 46px); }
+.film-head { margin-bottom: 12px; }
+.film-title {
+  font-family: var(--font-display); font-size: clamp(18px, 3.6vw, 24px);
+  color: var(--navy); line-height: 1.3; margin-top: 5px; word-break: keep-all;
+}
+.film-frame {
+  aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden;
+  background: var(--navy); box-shadow: var(--shadow-lift);
+}
+.film-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+/* 여행 카드 — 영상 포함 표시 */
+.trip-tag.film { background: rgba(232,64,64,.9); display: inline-flex; align-items: center; gap: 5px; }
+.trip-tag.film::before {
+  content: ""; width: 0; height: 0; border-style: solid;
+  border-width: 4px 0 4px 6px; border-color: transparent transparent transparent #fff;
+}
+
+/* ============================================================
+   새 소식 배너 — 사진첩에 들어온 학부모께 다른 페이지 소식 알리기
+   data-notice="<키>" 로 구분하며, 닫으면 그 키는 다시 뜨지 않습니다.
+   ============================================================ */
+.notice {
+  position: relative; display: flex; align-items: flex-start; gap: 14px;
+  margin: 0 0 26px; padding: 16px 46px 17px 18px;
+  background: linear-gradient(135deg, var(--gold-wash), var(--teal-wash));
+  border: 1.5px solid var(--gold); border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  animation: notice-in .55s var(--ease) both;
+}
+@keyframes notice-in {
+  from { opacity: 0; transform: translateY(-9px) scale(.99); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { .notice { animation: none; } }
+.notice-ico {
+  flex: none; width: 34px; height: 34px; border-radius: 50%;
+  background: var(--gold); color: var(--navy);
+  display: grid; place-items: center; font-size: 17px; line-height: 1;
+}
+.notice-body { min-width: 0; }
+.notice-eyebrow {
+  font-family: var(--font-latin); font-size: 11px; font-weight: 600;
+  letter-spacing: .13em; text-transform: uppercase; color: var(--teal-deep);
+}
+.notice-title {
+  display: block; font-size: clamp(15px, 3vw, 17px); font-weight: 700;
+  color: var(--navy); margin-top: 2px; word-break: keep-all;
+}
+.notice-text { display: block; font-size: 14px; color: var(--grey); margin-top: 4px; word-break: keep-all; }
+.notice-go {
+  display: inline-flex; align-items: center; gap: 5px; margin-top: 9px;
+  font-size: 14px; font-weight: 600; color: var(--teal-deep);
+}
+.notice-go:hover { gap: 8px; }
+.notice-x {
+  position: absolute; top: 9px; right: 9px; width: 30px; height: 30px;
+  border: 0; background: transparent; border-radius: 50%; cursor: pointer;
+  color: var(--muted); display: grid; place-items: center;
+  transition: background .2s var(--ease), color .2s var(--ease);
+}
+.notice-x:hover { background: rgba(26,26,46,.07); color: var(--navy); }
+@media (max-width: 460px) { .notice { padding-right: 40px; gap: 11px; } .notice-ico { width: 28px; height: 28px; font-size: 15px; } }

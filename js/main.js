@@ -62,3 +62,22 @@
     el.textContent = new Date().getFullYear();
   });
 })();
+
+/* 새 소식 배너 — 닫으면 그 키는 다시 뜨지 않습니다 (이 기기에 한함). */
+(function () {
+  'use strict';
+  document.querySelectorAll('[data-notice]').forEach(function (el) {
+    var key = 'kiw-notice-' + el.getAttribute('data-notice');
+    var seen = false;
+    try { seen = localStorage.getItem(key) === '1'; } catch (e) {}
+    if (seen) { el.remove(); return; }
+    el.hidden = false;
+    var x = el.querySelector('.notice-x');
+    if (x) {
+      x.addEventListener('click', function () {
+        try { localStorage.setItem(key, '1'); } catch (e) {}
+        el.remove();
+      });
+    }
+  });
+})();

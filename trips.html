@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>학부모 사진첩 | 키즈인원더</title>
-<meta name="description" content="키즈인원더 학부모 전용 사진첩.">
+<title>해외캠프 | 키즈인원더</title>
+<meta name="description" content="키즈인원더 해외캠프 사진첩.">
 <!-- 비공개(학부모 전용) 페이지 — 검색엔진 색인 제외. (이 noindex가 실질적 보호의 핵심) -->
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/svg+xml" href="assets/logo-badge.svg">
@@ -36,7 +36,9 @@
       문의하기
       <svg class="key-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="4"/><path d="M11 11l9 9"/><path d="M17 17l2-2"/><path d="M14 20l2-2"/></svg>
     </a>
-    <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+    <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
   <div class="mobile-menu" id="mobile-menu"><div>
     <nav aria-label="모바일 메뉴">
@@ -61,8 +63,8 @@
         <div class="lock" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
         </div>
-        <h1>학부모 사진첩</h1>
-        <p>학부모님께 안내드린 공용 접속 코드를 입력해 주세요.</p>
+        <h1>해외캠프</h1>
+        <p>학부모님께 안내드린 공용 접속 코드를 입력해 주세요.<br>반별 사진첩과 같은 코드입니다.</p>
         <form id="gate-form" autocomplete="off">
           <div class="field">
             <label for="pw">접속 코드</label>
@@ -73,15 +75,16 @@
         </form>
       </div>
 
-      <!-- ===================== PHOTO / VIDEO FEED ===================== -->
+      <!-- ===================== TRIP LIST ===================== -->
       <div class="feed" id="feed">
         <div class="feed-head">
           <div>
             <p class="eyebrow"><span class="dot">·</span> 학부모 전용</p>
-            <h1 style="font-size:clamp(22px,5vw,28px);margin-top:6px">우리 아이들의 순간</h1>
+            <h1 style="font-size:clamp(22px,5vw,28px);margin-top:6px">해외캠프</h1>
           </div>
           <button type="button" class="btn btn-signout" id="signout">로그아웃</button>
         </div>
+
         <!-- 새 소식 — 캠프 페이지 안내. 닫으면 이 기기에서는 다시 뜨지 않습니다. -->
         <aside class="notice" data-notice="camp-2027-01" hidden>
           <span class="notice-ico" aria-hidden="true">✦</span>
@@ -99,13 +102,62 @@
         </aside>
 
         <nav class="album-switch" aria-label="사진첩 종류">
-          <a href="parent.html" aria-current="page">반별 사진첩<span class="sw-sub">Class Photos</span></a>
-          <a href="trips.html">해외캠프<span class="sw-sub">Overseas Camps</span></a>
+          <a href="parent.html">반별 사진첩<span class="sw-sub">Class Photos</span></a>
+          <a href="trips.html" aria-current="page">해외캠프<span class="sw-sub">Overseas Camps</span></a>
         </nav>
-        <p class="small" id="feed-updated" style="margin-bottom:18px"></p>
-        <!-- 사진/영상은 parent-feed.json 매니페스트에서 월→반으로 묶여 렌더링됩니다 (라이브 Drive API 미사용). -->
-        <div id="pfeed-root"></div>
-        <p class="small" style="margin-top:16px">사진·영상을 누르면 크게 볼 수 있습니다.</p>
+
+        <div class="trips">
+
+          <!-- 제네바 캠프 2026 -->
+          <a class="trip-card" href="parent-geneva.html">
+            <div class="trip-shot">
+              <img src="https://drive.google.com/thumbnail?id=1v0ZwDKX1tBSUsFVPLL8JGSlK0pSMIWgY&sz=w800" alt="제네바 캠프 2026" loading="lazy">
+            </div>
+            <div class="trip-body">
+              <span class="trip-eyebrow">Geneva · Switzerland</span>
+              <span class="trip-title">제네바 캠프 2026</span>
+              <span class="trip-meta">2026년 8월 22일 – 27일 · 사진 99장 · 영상 10개</span>
+              <span class="trip-go">사진첩 열기
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- 런던 캠프 2025 -->
+          <a class="trip-card" href="parent-london-camp.html">
+            <div class="trip-shot">
+              <img src="https://drive.google.com/thumbnail?id=1aFzFGTpiP8ooOctM-hnHnMrPS7_hBf--&sz=w800" alt="런던 캠프 2025" loading="lazy">
+              <span class="trip-tag film">영상 포함</span>
+            </div>
+            <div class="trip-body">
+              <span class="trip-eyebrow">PGL Merchants Hill · Surrey, UK</span>
+              <span class="trip-title">런던 캠프 2025</span>
+              <span class="trip-meta">2025년 8월 3일 – 10일 · 사진 86장 · 영상</span>
+              <span class="trip-go">사진첩 열기
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- 런던 투어 2025 -->
+          <a class="trip-card" href="parent-london-tour.html">
+            <div class="trip-shot">
+              <img src="https://drive.google.com/thumbnail?id=1nGeCDp-R_3JbNkWjkf-Q074lwW757BOJ&sz=w800" alt="런던 투어 2025" loading="lazy">
+              <span class="trip-tag film">영상 포함</span>
+            </div>
+            <div class="trip-body">
+              <span class="trip-eyebrow">London · United Kingdom</span>
+              <span class="trip-title">런던 투어 2025</span>
+              <span class="trip-meta">2025년 7월 26일 – 8월 1일 · 사진 174장 · 영상</span>
+              <span class="trip-go">사진첩 열기
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+              </span>
+            </div>
+          </a>
+
+        </div>
+
+        <p class="small" style="margin-top:22px">앨범을 누르면 날짜별로 사진과 영상을 보실 수 있습니다.</p>
       </div>
 
     </div>
@@ -127,7 +179,7 @@
         <li><a href="camp.html">캠프</a></li>
         <li><a href="policies.html">이용 안내</a></li>
         <li><a href="registration.html">문의·등록</a></li>
-        <li><a href="parent.html" aria-current="page">학부모 전용</a></li>
+        <li><a href="parent.html">학부모 전용</a></li>
         <li><a href="trips.html">해외캠프<span class="sw-sub">Overseas Camps</span></a></li>
         <li><a href="privacy.html">개인정보처리방침</a></li>
       </ul>
@@ -154,28 +206,13 @@
 <script src="js/main.js"></script>
 <script>
 /* =====================================================================
-   학부모 사진첩 — 공용 접속 코드(클라이언트 게이트) + 월간 매니페스트 피드
+   해외캠프 — 캠프·투어별 앨범 목록
 
-   설계(합의됨): 모든 학부모가 공유하는 코드 1개, 클라이언트 게이트, 만료 없음.
-   이는 '우연한 발견'을 막는 얕은 문턱이며 강한 보안이 아닙니다(코드/이미지 URL은
-   소스에서 확인 가능). 실질적 색인 보호는 위 <meta robots noindex> 입니다.
-
-   피드 방식: 라이브 Drive API를 쓰지 않습니다. 매달 원장이(=이 도구를 실행해)
-   Drive 폴더를 읽어 parent-feed.json 매니페스트를 새로 만들고 커밋합니다.
-   이 페이지는 그 JSON만 읽어 렌더링합니다. (페이지에 API 키 없음)
-
-   매니페스트(parent-feed.json) 형식:
-     { "updatedAt": "2026-06", "items": [ item, ... ] }   // updatedAt = 최신 월
-   item 형식 (파일명/캡션은 넣지 않음 — 일부 영상 파일명에 아이 이름 포함):
-     { "type": "image"|"video", "id": "<Drive 파일 ID>", "class": "<반>", "month": "YYYY-MM" }
-   렌더링: 월(내림차순) → 반 으로 묶어서 표시. 최신 월이 위.
-   ※ 이미지가 보이려면 각 파일이 '링크가 있는 모든 사용자 - 뷰어'로 공유되어야 함.
+   반별 사진첩(parent.html)과 동일한 공용 접속 코드 · 동일한 localStorage 키를
+   사용합니다. 한쪽에서 코드를 입력하면 다른 쪽도 함께 열립니다.
    ===================================================================== */
 
-/* === 설정값 === */
-var GATE_PASSWORD   = 'kiw2026';                           // 학부모께 안내한 공용 접속 코드
-var DRIVE_FOLDER_ID = '159Wu-JwE3RIPH4IP6CtFOo3oAZEmwcTl'; // 매니페스트 생성 대상 Drive 폴더 ID (월간 갱신 시 사용)
-/* ============= */
+var GATE_PASSWORD = 'kiw2026';
 
 (function () {
   'use strict';
@@ -184,89 +221,21 @@ var DRIVE_FOLDER_ID = '159Wu-JwE3RIPH4IP6CtFOo3oAZEmwcTl'; // 매니페스트 �
   var form    = document.getElementById('gate-form');
   var input   = document.getElementById('pw');
   var errorEl = document.getElementById('gate-error');
-  var root    = document.getElementById('pfeed-root');
-  var updated = document.getElementById('feed-updated');
   var signout = document.getElementById('signout');
-  var STORE_KEY = 'kiw-parent-auth'; // localStorage — "로그인 유지"(remember me): 기기에 저장, 만료 없음
-  var loaded = false;
-
-  function imgUrl(id) { return 'https://drive.google.com/thumbnail?id=' + encodeURIComponent(id) + '&sz=w1600'; }
-  function viewUrl(id) { return 'https://drive.google.com/file/d/' + encodeURIComponent(id) + '/view'; }
-  function videoEmbed(id) { return 'https://drive.google.com/file/d/' + encodeURIComponent(id) + '/preview'; }
-
-  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
-    return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c];
-  }); }
-
-  function renderEmpty() {
-    root.innerHTML = '<p class="pfeed-empty">아직 등록된 사진이 없습니다. 새 사진이 올라오면 이곳에 표시됩니다.</p>';
-  }
-
-  function fmtMonth(m) {
-    var p = String(m || '').split('-');
-    return (p.length === 2) ? (p[0] + '년 ' + parseInt(p[1], 10) + '월') : esc(m);
-  }
-
-  function cell(it) {
-    if (it.type === 'video') {
-      return '<figure class="pfeed-item pfeed-video">' +
-             '<iframe src="' + videoEmbed(it.id) + '" title="영상" loading="lazy" allow="autoplay" allowfullscreen></iframe>' +
-             '</figure>';
-    }
-    return '<figure class="pfeed-item">' +
-           '<a href="' + viewUrl(it.id) + '" target="_blank" rel="noopener">' +
-           '<img src="' + imgUrl(it.id) + '" alt="사진" loading="lazy">' +
-           '</a></figure>';
-  }
-
-  // 월(내림차순, 매니페스트 정렬 순서 보존) → 반 으로 묶어 렌더링. 최신 월이 위.
-  function render(data) {
-    var items = (data && data.items) || [];
-    if (updated) { updated.textContent = (data && data.updatedAt) ? '업데이트: ' + fmtMonth(data.updatedAt) : ''; }
-    if (!items.length) { renderEmpty(); return; }
-    var months = [], mmap = {};
-    items.forEach(function (it) {
-      var m = it.month || '';
-      if (!mmap[m]) { mmap[m] = { order: [], byClass: {} }; months.push(m); }
-      var g = mmap[m], c = it['class'] || '';
-      if (!g.byClass[c]) { g.byClass[c] = []; g.order.push(c); }
-      g.byClass[c].push(it);
-    });
-    root.innerHTML = months.map(function (m) {
-      var g = mmap[m];
-      var inner = g.order.map(function (c) {
-        return '<div class="pfeed-class"><h3 class="pfeed-class-title">' + esc(c) + '</h3>' +
-               '<div class="pfeed-grid">' + g.byClass[c].map(cell).join('') + '</div></div>';
-      }).join('');
-      return '<section class="pfeed-month"><h2 class="pfeed-month-title">' + fmtMonth(m) + '</h2>' + inner + '</section>';
-    }).join('');
-  }
-
-  function loadFeed() {
-    if (loaded) { return; }
-    loaded = true;
-    fetch('parent-feed.json', { cache: 'no-store' })
-      .then(function (r) { if (!r.ok) { throw new Error('no manifest'); } return r.json(); })
-      .then(render)
-      .catch(function () { renderEmpty(); });
-  }
+  var STORE_KEY = 'kiw-parent-auth';
 
   function unlock() {
     if (gate) { gate.style.display = 'none'; }
     if (feed) { feed.classList.add('open'); }
-    loadFeed();
   }
-
   function lock() {
-    try { localStorage.removeItem(STORE_KEY); } catch (e) {}   // 로그아웃 — 저장된 로그인 유지 삭제
+    try { localStorage.removeItem(STORE_KEY); } catch (e) {}
     if (feed) { feed.classList.remove('open'); }
     if (gate) { gate.style.display = ''; }
     if (input) { input.value = ''; }
     if (errorEl) { errorEl.textContent = ''; }
   }
 
-  // 로그인 유지: 이 기기에서 이전에 올바른 코드를 입력했다면 자동으로 잠금 해제 (편의용 — 보안 아님).
-  // 저장값이 현재 코드와 다르면(원장이 코드 변경 시) 자동으로 무효화됩니다.
   try {
     if (localStorage.getItem(STORE_KEY) === GATE_PASSWORD) { unlock(); }
   } catch (e) {}
@@ -275,7 +244,7 @@ var DRIVE_FOLDER_ID = '159Wu-JwE3RIPH4IP6CtFOo3oAZEmwcTl'; // 매니페스트 �
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (input.value === GATE_PASSWORD) {
-        try { localStorage.setItem(STORE_KEY, input.value); } catch (e) {}  // 로그인 유지 저장
+        try { localStorage.setItem(STORE_KEY, input.value); } catch (e) {}
         errorEl.textContent = '';
         unlock();
       } else {

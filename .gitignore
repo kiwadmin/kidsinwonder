@@ -5,3 +5,6 @@ image-prompts.md
 # OS / editor cruft
 .DS_Store
 Thumbs.db
+
+# Local dev server config (Claude Code)
+.claude/
